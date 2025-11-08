@@ -72,7 +72,6 @@ def eat(prize, player, puntaje):
 
 def award(player):
     i = 1
-    print("first player", player, " count: ", len(player))
     while ( i < len(player)):
         prize = [ random.randint(1, len(table)-2), random.randint(1, len(table)-2) ]
         if prize[1] == player[i][1] and prize[0] == player[i][0]: i=i-1
