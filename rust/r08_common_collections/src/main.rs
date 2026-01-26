@@ -120,11 +120,38 @@ fn main() {
     let array_numbers = [2,3,4,5,6,21,12,2,2,2,8,10];
     let numbers: Vec<usize> = array_numbers.to_vec();
 
+    median(&numbers);
+    mode(&numbers);
+
     let sorted_array = counting_sort(&numbers);
     println!("No sorted array {:?}", numbers);
     println!("Sorted array {:?}", sorted_array);
 }
 
+pub fn median(numbers: &Vec<usize>) {
+    let sorted_array = counting_sort(&numbers);
+    let len_vector = len_vector(&numbers);
+    let index_median = len_vector / 2 ;
+
+    println!("The median of vector is {}", sorted_array[index_median-1]);
+}
+
+pub fn mode(numbers: &Vec<usize>) -> &usize {
+    let mut numbers_map = HashMap::new();
+    for i in numbers {
+        numbers_map.entry(i).or_insert(0);
+        numbers_map.insert(i, numbers_map.get(&i).copied().unwrap_or(0) + 1);
+    }
+
+    let max = numbers_map.values().max().unwrap_or(&0);
+
+    let ans = match numbers_map.get(&max) {
+        Some(something) => something,
+        None => 0
+    }
+
+    ans
+}
 
 pub fn counting_sort(numbers: &Vec<usize> ) -> Vec<usize> {
     let mut numbers: Vec<usize> = numbers.clone();
