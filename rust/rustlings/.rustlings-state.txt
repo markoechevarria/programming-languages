@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-strings1
+errors5
 
 intro1
 intro2
@@ -25,9 +25,28 @@ primitive_types3
 primitive_types4
 primitive_types5
 primitive_types6
+vecs1
+vecs2
 structs1
 structs2
 structs3
 enums1
 enums2
 enums3
+strings1
+strings2
+strings3
+strings4
+modules1
+modules2
+modules3
+hashmaps1
+hashmaps2
+hashmaps3
+options1
+options2
+options3
+errors1
+errors2
+errors3
+errors4
