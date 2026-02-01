@@ -1,0 +1,1 @@
+/home/marko/programming-languages/rust/r10_generic_types_traits_and_lifetimes/target/debug/r10_generic_types_traits_and_lifetimes: /home/marko/programming-languages/rust/r10_generic_types_traits_and_lifetimes/src/main.rs

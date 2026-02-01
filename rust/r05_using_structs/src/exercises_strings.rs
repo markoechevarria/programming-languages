@@ -1,5 +1,3 @@
-use crates::utf8_slice;
-
 fn main() {
     // 1
     let s: &str = "hello world";
@@ -111,9 +109,9 @@ fn main() {
     }
 
     // 14
-    let s = "The 🚀 goes to the 🌑!";
-    let rocket = utf8_slice::slice(s, 4, 5);
-
+    // let s = "The 🚀 goes to the 🌑!";
+    // let rocket = utf8_slice::slice(s, 4, 5);
+    
 }
 
 fn greetings(s: &str) {
