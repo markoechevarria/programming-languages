@@ -1,6 +1,0 @@
-[package]
-name = "r01_getting_started"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
