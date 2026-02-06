@@ -1,3 +1,6 @@
+#![allow(incomplete_features)]
+#![feature(generic_const_exprs)]
+
 struct ArrayPair<T, const N: usize> {
     left: [T; N],
     right: [T; N]
@@ -22,13 +25,57 @@ pub struct MinSlice<T, const N: usize> {
     pub tail: [T],
 }
 
+struct Array<T, const N: usize> {
+    data : [T; N]
+}
+
+fn check_size<T>(_val: T)
+where
+    Assert<{ core::mem::size_of::<T>() < 768 }>: IsTrue,
+{}
+
 fn main() {
     let slice: &[u8] = b"Hello, world";
     let reference: Option<&u8> = slice.get(6);
     assert!(reference.is_some());
 
-    let slice: &[u8] = b"Hello, world";
-    let minslice = MinSlice::<u8, 12>::from_slice(slice).unwrap();
-    let value: u8 = minslice.head[6];
-    assert_eq!(value, b' ')     
+    // 1
+    let arrays = [
+        Array{
+            data: [1, 2, 3],
+        },
+        Array {
+            data: [1, 22, 33],
+        },
+        Array {
+            data: [1, 2, 4]
+        }
+    ];
+
+    // 2
+    let arr = [1, 2, 3];
+    print_array(arr);
+
+    let arr = ["hello", "world"];
+    print_array(arr);
+
+    // 3
+    check_size([0u8; 767]); 
+    check_size([0i32; 191]);
+    /*
+    check_size(["hello你好"; 47]);
+    check_size([(); 31].map(|_| "hello你好".to_string()));
+    check_size(['中'; 191 ]);
+*/
+
 }
+
+fn print_array<T: std::fmt::Debug, const N: usize>( arr: [T; N]) {
+    println!("{:?}", arr);
+}
+
+pub enum Assert<const CHECK: bool> {}
+
+pub trait IsTrue {}
+
+impl IsTrue for Assert<true> {}
