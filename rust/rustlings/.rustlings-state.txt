@@ -1,6 +1,6 @@
 DON'T EDIT THIS FILE!
 
-errors5
+move_semantics1
 
 intro1
 intro2
@@ -50,3 +50,15 @@ errors1
 errors2
 errors3
 errors4
+errors5
+generics1
+generics2
+traits1
+traits2
+traits3
+traits4
+traits5
+quiz3
+lifetimes1
+lifetimes2
+lifetimes3
