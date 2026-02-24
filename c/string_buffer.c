@@ -3,7 +3,7 @@
 
 char *readline(FILE *line) {
 
-    int size = 16;
+    int size = 4;
     int offset = 0;
     char *buffer = malloc(size * sizeof(char));
     int c;
@@ -18,7 +18,7 @@ char *readline(FILE *line) {
 
             if ( tmp == NULL ) { 
                 free(buffer);
-                return buffer; 
+                return NULL; 
             }
 
             buffer = tmp;
